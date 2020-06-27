@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DataServices\BookService.cs~RF13d67cc.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ModelServices\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookStore.Data.Models\BookStore.Data.Models.csproj" />
+    <ProjectReference Include="..\BookStore.Data\BookStore.Data.csproj" />
+  </ItemGroup>
+
+</Project>
