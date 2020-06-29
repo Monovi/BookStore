@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\BookController.cs~RF9e88240.TMP" />
     <None Remove="Views\Author\Edit.cshtml~RF188d454.TMP" />
+    <None Remove="Views\Book\Details.cshtml~RF9fb6c0c.TMP" />
+    <None Remove="Views\Book\Index.cshtml~RF9e5a0d3.TMP" />
   </ItemGroup>
 
   <ItemGroup>

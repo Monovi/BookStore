@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using BookStore.Data;
@@ -10,17 +5,23 @@ using BookStore.Data.Caching;
 using BookStore.Data.Services.DataServices;
 using BookStore.Data.Services.DataServices.Interfaces;
 using BookStore.Web.Mapping;
+using BookStore.Web.ModelFactories;
+using BookStore.Web.ModelFactories.Interfaces;
 using BookStore.Web.Models.Authors;
+using BookStore.Web.Models.Books;
+using BookStore.Web.Models.Publishers;
 using BookStore.Web.Validation.Authors;
+using BookStore.Web.Validation.Books;
+using BookStore.Web.Validation.Publishers;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace BookStore.Web
 {
@@ -63,6 +64,11 @@ namespace BookStore.Web
 
             // validators
             services.AddTransient<IValidator<AuthorModel>, AuthorModelValidator>();
+            services.AddTransient<IValidator<PublisherModel>, PublisherModelValidator>();
+            services.AddTransient<IValidator<BookModel>, BookModelValidator>();
+
+            // model factories
+            services.AddScoped<IBookModelFactory, BookModelFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
